@@ -1,1 +1,1 @@
-# pythonowe_przygody
+# pythonoweprzygody.wordpress.com
