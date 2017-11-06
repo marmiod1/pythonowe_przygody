@@ -11,6 +11,7 @@ a jeśli nie pusty to dokonaj konwersji na liczbę i kontynuuj program'''
 total = 0
 counter = 0
 ciąg_liczb = []
+average = 0
 
 while True:
     a = input("Enter a number: ")
@@ -20,16 +21,14 @@ while True:
         print("You did not enter a number, game is over")
         break
 
-    if a > 0:
-        ciąg_liczb.append(a)
-        total += a
-        counter =+ 1
-        print("Current total is {}".format(total))
-        print("You entered {} numbers".format(counter))
-        average = total / len(ciąg_liczb)
-    else:
-        print("This is the end")
-        break
+
+    ciąg_liczb.append(a)
+    total += a
+    counter += 1
+    print("Current total is {}".format(total))
+    print("You entered {} numbers".format(counter))
+    average = total / len(ciąg_liczb)
+
 
 print("Final score is {}".format(total))
 print("The user entered {} numbers".format(counter))
