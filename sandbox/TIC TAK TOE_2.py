@@ -2,7 +2,6 @@
 
 board = [" " for i in range(9)]
 
-
 def print_board():
     row1 = "| {} | {} | {} |".format(board[0], board[1], board[2])
     row2 = "| {} | {} | {} |".format(board[3], board[4], board[5])
@@ -18,27 +17,29 @@ def print_board():
 
 
 def player_move(icon):
-    if icon == "X":
-        number = "X"
-    elif icon == "O":
-        number = "O"
+    print("Your turn player {}".format(icon))
 
-    print("Your turn player {}".format(number))
+    choice=-1
+    while(choice==-1):
+        rawChoice=input("Enter you move (1-9): ")
+        choice = getInput(rawChoice)
+    board[choice - 1] = icon
 
+def getInput(rawChoice):
     try:
-        choice = int(input("Enter you move (1-9): ").strip())
+        choice = int(rawChoice.strip())
     except ValueError:
         print("It is not a number")
-        return
+        return -1
 
     if choice < 0 or choice > 9:
         print("Please, enter your move only from 1-9:  ")
+        return -1
 
-    elif board[choice - 1] == " ":
-        board[choice - 1] = icon
-    else:
+    if board[choice - 1] != " ":
         print("That space is taken!")
-
+        return -1
+    return choice
 
 def is_victory(icon):
     if (board[0] == icon and board[1] == icon and board[2] == icon) or \
@@ -80,11 +81,3 @@ while True:
         print_board()
         print("It's a draw")
         break
-
-
-
-
-
-
-
-
