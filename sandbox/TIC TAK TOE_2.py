@@ -1,6 +1,7 @@
 # making a board
 
 board = [" " for i in range(9)]
+boardSize=3
 
 def print_board():
     row1 = "| {} | {} | {} |".format(board[0], board[1], board[2])
@@ -81,5 +82,3 @@ while True:
     elif is_victory("O"):
         print("O Wins! Congratulations")
         break
-
-def playerTurn(label)
