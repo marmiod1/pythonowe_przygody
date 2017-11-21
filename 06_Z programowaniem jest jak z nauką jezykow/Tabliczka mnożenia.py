@@ -1,4 +1,4 @@
-'''Wygeneruj na ekranie tabliczkę mnożenia 10 x 10. Nie musi wyglądać ładnie pod względem graficznym, ale niech w każdym wierszu będzie dokładnie wyników mnożenia).'''
+'''Wygeneruj na ekranie tabliczkę mnożenia 10 x 10. Nie musi wyglądać ładnie pod względem graficznym, ale niech w każdym wierszu będzie dokładnie 10 wyników mnożenia).'''
 
 scope = range(1,11)
 cols = [0] + list(scope)
