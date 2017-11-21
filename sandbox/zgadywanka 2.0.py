@@ -1,8 +1,5 @@
 import random
 
-szukanaLiczba = 5
-
-
 def kolejka():
     counter = 1
 
@@ -31,16 +28,8 @@ def getInput(rawChoice):
     return choice
 
 
-def getInput(rawChoice):
-    try:
-        choice = int(rawChoice.strip())
-    except ValueError:
-        print("Spróbuj wpisać prawidłową wartość")
-        return -1
-    return choice
-
 while True:
-    #szukanaLiczba = random.randint(1, 101)
+    szukanaLiczba = random.randint(1, 101)
     kolejka()
     kontynuacjaGry = input("Chcesz zagrać ponownie (y/n)?: ")
     if kontynuacjaGry == "n":
