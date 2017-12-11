@@ -1,49 +1,63 @@
-# zacząć od tego by gracz wpisywał słowa, które w każdej kolejne będa dodawana do listy
+print("We will start from the letter 'a' ")
+list_of_words = []
 
-wszystie_uzyte_slowa = []
-print("Zaczynamy od słowa na literkę 'a' ")
+
+def main():
+    while True:
+        player_move("1")
+        player_choose("1")
+        if uniqueness("1"):
+            pass
+        else:
+            break
+        player_move("2")
+        player_choose("2")
+        if uniqueness("2"):
+            pass
+        else:
+            break
 
 def player_move(player):
     if player == "1":
-        gracz = "1"
+        player = "1"
     elif player == "2":
-        gracz = "2"
-    print("Kolej gracza nr {}".format(gracz))
+        player = "2"
+    print("Now it's your turn player {}".format(player))
 
 
 def player_choose(player):
-    wybor = get_input()
-    if len(wszystie_uzyte_slowa) < 1:
-        ostatnia_literka = "a"
+    if len(list_of_words) < 1:
+        last_letter = "a"
+        return last_letter
     else:
-        slowo_do_walidacji = wszystie_uzyte_slowa[-1]
-        ostatnia_literka = slowo_do_walidacji[-1]
+        active_word = list_of_words[-1]
+        last_letter = active_word[-1]
+        return last_letter
 
-    if wybor[0] == ostatnia_literka:
-        pass
-    else:
-        print("nie udało ci się zacząć słowa na odpowiednią literę, którą była litera: {}".format(ostatnia_literka))
-        #wtedy powinien przerwać grę, a teraz idzie dalej i dodaje do listy "wszystkie użyte słowa, słowo, które było złe
-        #i przez to zmienia wartość "ostatnia_literka"
 
-    if wybor in wszystie_uzyte_slowa:
-        print("to słowo się już raz pojawiło, Graczu przegrałeś") #chciałabym żeby skończyło grę w tym momencie
+def uniqueness(player):
+    chosen_word = get_input()
+    if chosen_word[0] == player_choose(player):
+        if chosen_word not in list_of_words:
+            list_of_words.append(chosen_word)
+            return True
+        else:
+            print("This word has already appeared. Unfortunately you lost this time.")
+            return False
     else:
-        wszystie_uzyte_slowa.append(wybor)
+        print("You didn't start from correct letter which was '{}'".format(player_choose(player)))
+        print("You lost this time.")
 
 
 def get_input():
     while True:
-        choice = input("Moje słowo: ")
+        choice = input("My chosen word is: ")
         if choice.isalpha():
             return choice
         else:
-            print("podane słowo nie może być cyfrą")
+            print("You need to enter correct word.")
 
 
-while True:
-    player_move("1")
-    player_choose("1")
-    player_move("2")
-    player_choose("2")
+main()
+
 
