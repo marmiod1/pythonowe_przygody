@@ -51,9 +51,8 @@ def uniqueness(player):
 
 def get_input():
     while True:
-        choice = input("My chosen word is: ")
+        choice = str.lower(input("My chosen word is: "))
         if choice.isalpha():
-            choice = str.lower(choice)
             return choice
         else:
             print("You need to enter correct word.")
